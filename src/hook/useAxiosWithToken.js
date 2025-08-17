@@ -14,7 +14,7 @@ async function getAxiosWithFirebaseToken() {
     const token = await user.getIdToken(); // get fresh Firebase ID token
 
     const instance = axios.create({
-      baseURL: 'http://localhost:3000',
+      baseURL: 'https://food-donation-server-mu.vercel.app',
       headers: {
         Authorization: 'Bearer ' + token,
         'Content-Type': 'application/json',

@@ -12,7 +12,7 @@ const Favorites = () => {
   // Load favorites
   useEffect(() => {
     if (user?.email) {
-      axios.get(`http://localhost:3000/favorites/${user.email}`)
+      axios.get(`https://food-donation-server-mu.vercel.app/favorites/${user.email}`)
         .then(res => setFavorites(res.data))
         .catch(() => toast.error('Failed to load favorites'));
     }
@@ -20,7 +20,7 @@ const Favorites = () => {
 
   const handleRemove = async (donationId) => {
   try {
-    await axios.delete('http://localhost:3000/favorites', {
+    await axios.delete('https://food-donation-server-mu.vercel.app/favorites', {
       data: {
         userEmail: user.email,
         donationId,
@@ -35,7 +35,7 @@ const Favorites = () => {
 
   return (
     <div className="p-4">
-      <h2 className="text-2xl font-bold mb-4">My Favorites</h2>
+      <h2 className="text-2xl text-center  bg-gradient-to-r from-green-500  to-blue-400 bg-clip-text text-transparent font-bold mb-4">My Favorites</h2>
       {favorites.length === 0 ? (
         <p>No favorites added.</p>
       ) : (

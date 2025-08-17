@@ -13,11 +13,11 @@ const TransactionHistory = () => {
     const fetchData = async () => {
       try {
         // Get transaction history
-        const trxRes = await axios.get(`http://localhost:3000/transactions/${user.email}`);
+        const trxRes = await axios.get(`https://food-donation-server-mu.vercel.app/transactions/${user.email}`);
         setTransactions(trxRes.data);
 
         // Get associated charity requests
-        const reqRes = await axios.get(`http://localhost:3000/charity-requests/${user.email}`);
+        const reqRes = await axios.get(`https://food-donation-server-mu.vercel.app/charity-requests/${user.email}`);
         const statusMap = {};
         reqRes.data.forEach(req => {
           statusMap[req.transactionId] = req.status;

@@ -4,14 +4,20 @@ import FeaturedDonationsPage from '../FeaturedDonations/FeaturedDonationsPage';
 import LatestCharityRequests from '../../LatestCharityRequests/LatestCharityRequests';
 import ImpactStats from '../../ImpactPage/ImpactStats';
 import CommunityStories from '../../CommunityStories/CommunityStories';
+import UserStatistics from '../../../Component/Statics/UserStatistics';
+import SuccessStoryBanner from '../../../Component/FoodDonationSuccess/SuccessStoryBanner ';
 
 const Home = () => {
     return (
-        <div>
+        <div className=" w-11/12 mx-auto">
           <Banner/>
-          <FeaturedDonationsPage></FeaturedDonationsPage>
-          <LatestCharityRequests></LatestCharityRequests>
           <ImpactStats></ImpactStats>
+          <FeaturedDonationsPage></FeaturedDonationsPage>
+
+          <LatestCharityRequests></LatestCharityRequests>
+          <SuccessStoryBanner></SuccessStoryBanner>
+          <UserStatistics></UserStatistics>
+          
           <CommunityStories></CommunityStories>
           
         </div>

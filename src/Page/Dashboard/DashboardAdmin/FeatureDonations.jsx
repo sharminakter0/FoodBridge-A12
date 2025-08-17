@@ -37,7 +37,7 @@ const FeatureDonations = () => {
   }, []);
   const handleFeature = async (id) => {
     try {
-      const res = await axios.put(`http://localhost:3000/donations/feature/${id}`);
+      const res = await axios.put(`https://food-donation-server-mu.vercel.app/donations/feature/${id}`);
       toast.success(res.data.message);
       setDonations(prev => prev.map(d => d._id === id ? { ...d, isFeatured: true } : d));
     } catch (err) {
@@ -51,7 +51,7 @@ const FeatureDonations = () => {
 
       <div className="overflow-x-auto">
         <table className="table w-full border">
-          <thead className="bg-green-100">
+          <thead className="">
             <tr>
               <th>Image</th>
               <th>Title</th>

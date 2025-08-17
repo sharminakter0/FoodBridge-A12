@@ -40,7 +40,7 @@ const DonationDetails = () => {
 
   useEffect(()=>{
   if (user?.email){
- axios.get(`http://localhost:3000/users/role/${user.email}`)
+ axios.get(`https://food-donation-server-mu.vercel.app/users/role/${user.email}`)
   .then (res=> setUseRole(res.data.role))
   }
   },[user])

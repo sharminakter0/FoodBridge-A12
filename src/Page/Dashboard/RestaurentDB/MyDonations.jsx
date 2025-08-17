@@ -11,7 +11,7 @@ const MyDonations = () => {
 
   useEffect(() => {
     if (user?.email) {
-      axios.get(`http://localhost:3000/donations/restaurant/${user.email}`)
+      axios.get(`https://food-donation-server-mu.vercel.app/donations/restaurant/${user.email}`)
         .then(res => setDonations(res.data))
         .catch(() => toast.error('Failed to load donations'));
     }
@@ -20,7 +20,7 @@ const MyDonations = () => {
   const handleDelete = async (id) => {
     if (confirm('Are you sure you want to delete this donation?')) {
       try {
-        await axios.delete(`http://localhost:3000/donations/${id}`);
+        await axios.delete(`https://food-donation-server-mu.vercel.app/donations/${id}`);
         setDonations(donations.filter(item => item._id !== id));
         toast.success('Donation deleted');
       } catch {

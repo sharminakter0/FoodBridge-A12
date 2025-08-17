@@ -9,7 +9,7 @@ const UpdateDonationForm = () => {
   const [donation, setDonation] = useState(null);
 
   useEffect(() => {
-    axios.get(`http://localhost:3000/donations`)
+    axios.get(`https://food-donation-server-mu.vercel.app/donations`)
       .then(res => {
         const found = res.data.find(item => item._id === id);
         if (found) setDonation(found);
@@ -21,7 +21,7 @@ const UpdateDonationForm = () => {
     e.preventDefault();
     try {
        const {_id, ...safeDonation} =donation
-      await axios.put(`http://localhost:3000/donations/${id}`, safeDonation);
+      await axios.put(`https://food-donation-server-mu.vercel.app/donations/${id}`, safeDonation);
       toast.success('Donation updated');
       navigate('/dashboard/my-donations');
     } catch {

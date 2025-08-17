@@ -8,7 +8,7 @@ const AllReviews = () => {
 
   useEffect(() => {
     axios
-      .get('http://localhost:3000/reviews') // Replace with your actual reviews endpoint
+      .get('https://food-donation-server-mu.vercel.app/reviews') // Replace with your actual reviews endpoint
       .then((res) => {
         console.log('Reviews from API:', res.data);
         setReviews(res.data);

@@ -23,7 +23,7 @@ const CommunityStories = () => {
 
   const fetchStories = () => {
     axios
-      .get('http://localhost:3000/community-stories')
+      .get('https://food-donation-server-mu.vercel.app/community-stories')
       .then((res) => {
         if (res.data.length > 0) setStories(res.data);
         else setStories([]);
@@ -37,7 +37,7 @@ const CommunityStories = () => {
   const postSeedData = async () => {
     try {
       for (const story of fallbackStories) {
-        await axios.post('http://localhost:3000/community-stories', story);
+        await axios.post('https://food-donation-server-mu.vercel.app/community-stories', story);
       }
       alert('Sample stories added successfully!');
       fetchStories(); // refresh after post
@@ -52,9 +52,9 @@ const CommunityStories = () => {
   }, []);
 
   return (
-    <div className="bg-white py-12 px-4 md:px-10 max-w-6xl mx-auto">
-      <h2 className="text-3xl font-bold text-center text-green-800 mb-6">Community Stories</h2>
-
+    <div className=" py-8">
+      <h2 className="text-3xl font-bold text-center  bg-gradient-to-r from-green-500  to-blue-400 bg-clip-text text-transparent mb-4">Community Stories</h2>
+     <p className='text-sm text-center mb-6 '>Our community stories highlight the power of unity, kindness, and collaboration. <br /> Every act of giving creates a ripple of change that inspires others to join and make a difference</p>
       {stories.length === 0 && (
         <div className="text-center mb-6">
           <p className="text-gray-600">No stories found. Add sample data below.</p>
@@ -71,7 +71,7 @@ const CommunityStories = () => {
         {stories.map((story, idx) => (
           <div
             key={story._id || idx}
-            className="bg-green-50 p-6 rounded-lg shadow-md flex items-start gap-4"
+            className="bg-blue-100 p-6 rounded-lg shadow-md flex items-start gap-4"
           >
             <img
               src={story.image}
@@ -79,7 +79,8 @@ const CommunityStories = () => {
               className="w-24 h-24 object-cover rounded-full border-2 border-green-300"
             />
             <div>
-              <h3 className="text-xl font-semibold text-green-700">{story.name}</h3>
+              <h3 className="text-xl font-semibold 
+              text-blue-700">{story.name}</h3>
               <p className="text-sm text-gray-500 mb-2">{story.role}</p>
               <p className="text-gray-700 italic">“{story.story}”</p>
             </div>

@@ -3,7 +3,7 @@ import React from 'react';
 
 
 const axiosSecure =axios.create({
-    baseURL: 'http://localhost:3000',
+    baseURL: 'https://food-donation-server-mu.vercel.app',
   
 })
 const UseAxiosSequre = () => {

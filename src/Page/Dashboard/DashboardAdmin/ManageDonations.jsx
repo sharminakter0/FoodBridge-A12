@@ -7,7 +7,7 @@ const ManageDonations = () => {
 
 
   useEffect(() => {
-    axios.get('http://localhost:3000/donations')
+    axios.get('https://food-donation-server-mu.vercel.app/donations')
       .then(res => setDonations(res.data))
       .catch(() => toast.error('Donation Load Error'));
   }, []);
@@ -15,7 +15,7 @@ const ManageDonations = () => {
   
   const updateStatus = async (id, status) => {
     try {
-      await axios.put(`http://localhost:3000/donations/${id}`, { status });
+      await axios.put(`https://food-donation-server-mu.vercel.app/donations/${id}`, { status });
       toast.success(`The Donation has been ${status === 'Verified' ? 'Verified' : 'Rejected'}`);
       setDonations(prev => 
         prev.map(d => d._id === id ? { ...d, status } : d)
@@ -29,8 +29,8 @@ const ManageDonations = () => {
     <div className="p-5">
       <h2 className="text-2xl font-bold mb-5">Manage Donations</h2>
       <div className="overflow-x-auto">
-        <table className="min-w-full bg-white border rounded shadow">
-          <thead className="bg-gray-100">
+        <table className="min-w-full bg-base-100 border rounded shadow">
+          <thead className="">
             <tr>
               <th className="px-4 py-2 text-left">Title</th>
               <th className="px-4 py-2 text-left">Food Type</th>

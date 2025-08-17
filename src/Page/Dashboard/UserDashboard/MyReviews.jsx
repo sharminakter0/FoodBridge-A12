@@ -13,7 +13,7 @@ const MyReviews = () => {
 
   // useEffect(() => {
   //   if (user?.email) {
-  //     axios.get(`http://localhost:3000/reviews/${user.email}`)
+  //     axios.get(`https://food-donation-server-mu.vercel.app/reviews/${user.email}`)
   //       .then(res => setReviews(res.data))
   //       .catch(() => toast.error('Failed to load reviews'));
   //   }
@@ -24,13 +24,13 @@ const MyReviews = () => {
     if (!user?.email) return;
 
     try {
-      const res = await axios.get(`http://localhost:3000/reviews/${user.email}`);
+      const res = await axios.get(`https://food-donation-server-mu.vercel.app/reviews/${user.email}`);
       const baseReviews = res.data;
 
       // Fetch restaurant names from donation IDs
       const enrichedReviews = await Promise.all(
         baseReviews.map(async review => {
-          const donationRes = await axios.get(`http://localhost:3000/donations/${review.donationId}`);
+          const donationRes = await axios.get(`https://food-donation-server-mu.vercel.app/donations/${review.donationId}`);
           return {
             ...review,
             restaurantName: donationRes.data.restaurantName || 'Unknown'
@@ -50,7 +50,7 @@ const MyReviews = () => {
 
   const handleDelete = async (id) => {
     try {
-      await axios.delete(`http://localhost:3000/reviews/${id}`);
+      await axios.delete(`https://food-donation-server-mu.vercel.app/reviews/${id}`);
       setReviews(reviews.filter(review => review._id !== id));
       toast.success('Review deleted');
     } catch {

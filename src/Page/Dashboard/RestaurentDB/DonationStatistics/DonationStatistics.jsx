@@ -11,7 +11,7 @@ const DonationStatistics = () => {
   useEffect(() => {
     if (user?.email) {
       axios
-        .get(`http://localhost:3000/donations?email=${user.email}`)
+        .get(`https://food-donation-server-mu.vercel.app/donations?email=${user.email}`)
         .then(res => {
           const donations = res.data;
 

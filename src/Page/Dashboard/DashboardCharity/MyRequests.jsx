@@ -11,7 +11,7 @@ const MyRequests = () => {
   useEffect(() => {
     if (user.email) {
       axios
-        .get(`http://localhost:3000/donation-requests/charity/${user.email}`)
+        .get(`https://food-donation-server-mu.vercel.app/donation-requests/charity/${user.email}`)
         .then(res => setRequests(res.data))
         .catch(() => toast.error('Failed to load requests'));
     }
@@ -19,7 +19,7 @@ const MyRequests = () => {
 
   const handleCancel = async (id) => {
     try {
-      await axios.delete(`http://localhost:3000/donation-requests/${id}`);
+      await axios.delete(`https://food-donation-server-mu.vercel.app/donation-requests/${id}`);
       toast.success('Request cancelled successfully');
       setRequests(prev => prev.filter(req => req._id !== id));
     } catch (err) {
@@ -32,7 +32,7 @@ const MyRequests = () => {
       <h2 className="text-xl font-bold mb-4">My Donation Requests</h2>
       <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
         {requests.map(request => (
-          <div key={request._id} className="border p-4 rounded-lg shadow-md bg-white space-y-2">
+          <div key={request._id} className="border p-4 rounded-lg shadow-md  space-y-2">
             <h3 className="text-lg font-semibold">{request.donationTitle}</h3>
             <p><strong>Restaurant:</strong> {request.restaurantName}</p>
             <p><strong>Food Type:</strong> {request.foodType}</p>

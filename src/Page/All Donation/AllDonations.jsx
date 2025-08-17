@@ -36,7 +36,7 @@ const AllDonations = () => {
   }
 
   return (
-    <div className="px-4 py-6">
+    <div className="w-11/12 mx-auto mt-9">
       {/* Search + Sort Controls */}
       <div className="flex flex-col md:flex-row md:items-center gap-4 mb-6">
         <input
@@ -55,15 +55,14 @@ const AllDonations = () => {
           <option value="">Sort By</option>
           <option value="quantity-asc">Quantity (Low to High)</option>
           <option value="quantity-desc">Quantity (High to Low)</option>
-          <option value="pickup-asc">Pickup Time (Earliest First)</option>
-          <option value="pickup-desc">Pickup Time (Latest First)</option>
+         
         </select>
       </div>
 
       {/* Donations Grid */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+      <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-5">
         {filteredDonations.map(donation => (
-          <div key={donation._id} className="border rounded-lg p-4 shadow">
+          <div key={donation._id} className="border rounded-lg p-2 shadow bg-base-100">
             <img
               src={donation.image}
               alt={donation.title}
@@ -71,13 +70,15 @@ const AllDonations = () => {
             />
             <h2 className="text-xl font-semibold">{donation.title}</h2>
             <p><strong>Food Type:</strong> {donation.foodType}</p>
-            <p><strong>Restaurant:</strong> {donation.restaurantName}, {donation.location}</p>
-            <p><strong>Charity:</strong> {donation.charityName || 'Unassigned'}</p>
-            <p><strong>Status:</strong> {donation.status}</p>
+            <p><strong>Location:</strong>{donation.location}</p>
+           
+          
+          
             <p><strong>Quantity:</strong> {donation.quantity}</p>
-            <p><strong>Pickup Time:</strong> {new Date(donation.pickupTime).toLocaleString()}</p>
+           
+
             <Link to={`/donations/${donation._id}`}>
-              <button className="btn btn-success mt-2">Details</button>
+              <button className="px-4 py-1 rounded-xl hover:bg-gradient-to-r from-blue-600 to-blue-400 hover:text-white border-2 w-full mx-auto text-blue-400 border-blue-400 mt-2">Details</button>
             </Link>
           </div>
         ))}

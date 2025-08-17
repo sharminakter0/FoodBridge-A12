@@ -12,7 +12,7 @@ const StripePayment = ({ amount, orgInfo, onSuccess }) => {
   const [clientSecret, setClientSecret] = useState('');
 
   useEffect(() => {
-    axios.post('http://localhost:3000/create-payment-intent', { amount: amount * 100 })
+    axios.post('https://food-donation-server-mu.vercel.app/create-payment-intent', { amount: amount * 100 })
       .then(res => setClientSecret(res.data.clientSecret));
   }, [amount]);
 
@@ -66,7 +66,7 @@ const StripePayment = ({ amount, orgInfo, onSuccess }) => {
         date: new Date()
       };
 
-      await axios.post('http://localhost:3000/charity-requests', payload);
+      await axios.post('https://food-donation-server-mu.vercel.app/charity-requests', payload);
       onSuccess();
     }
   };
@@ -74,7 +74,7 @@ const StripePayment = ({ amount, orgInfo, onSuccess }) => {
   return (
     <form onSubmit={handleSubmit} className="space-y-4">
       <CardElement className="p-4 border rounded-md" />
-      <button type="submit" className="btn btn-success w-full" disabled={!stripe || !clientSecret}>
+      <button type="submit" className="px-4 py-2 rounded-xl bg-gradient-to-r from-blue-600 to-blue-400 text-white border-2 mx-auto border-blue-400 w-full hover:shadow-md hover:shadow-blue-600 " disabled={!stripe || !clientSecret}>
         Pay ${amount}
       </button>
     </form>

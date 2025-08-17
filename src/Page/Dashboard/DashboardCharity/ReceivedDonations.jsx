@@ -12,7 +12,7 @@ const ReceivedDonations = () => {
   useEffect(() => {
     if (user.email) {
       axios
-        .get(`http://localhost:3000/donation-requests`)
+        .get(`https://food-donation-server-mu.vercel.app/donation-requests`)
         .then(res => setDonations(res.data))
         .catch(() => toast.error('Failed to load received donations'));
     }
@@ -23,7 +23,7 @@ const ReceivedDonations = () => {
     if (!review.trim()) return toast.error('Review cannot be empty');
 
     try {
-      await axios.post('http://localhost:3000/reviews', {
+      await axios.post('https://food-donation-server-mu.vercel.app/reviews', {
        email:user.email,
         donationTitle: selected.donationTitle,
         restaurantName: selected.restaurantName,
@@ -43,7 +43,7 @@ const ReceivedDonations = () => {
       <h2 className="text-xl font-bold mb-4">Received Donations</h2>
       <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
         {result.map(d => (
-          <div key={d._id} className="border p-4 rounded-lg shadow-md bg-white space-y-2">
+          <div key={d._id} className="border p-4 rounded-lg shadow-md bg-base-100 space-y-2">
             <h3 className="text-lg font-semibold">{d.donationTitle}</h3>
             <p><strong>Restaurant:</strong> {d.restaurantName}</p>
             <p><strong>Food Type:</strong> {d.foodType}</p>

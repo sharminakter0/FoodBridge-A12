@@ -25,7 +25,7 @@ const RequestCharityRole = () => {
   };
 
   return (
-    <div className="max-w-xl mx-auto mt-10 p-6 bg-white shadow-md rounded-md">
+    <div className="max-w-xl mx-auto mt-10 p-6 bg-base-100 shadow-md rounded-md border-blue-400 border-1">
       <h2 className="text-2xl font-bold mb-4">Request Charity Role</h2>
       {!payNow ? (
         <form className="space-y-4" onSubmit={handlePayClick}>
@@ -55,7 +55,7 @@ const RequestCharityRole = () => {
               required
             />
           </div>
-          <button className="btn btn-primary w-full">Pay $25</button>
+          <button className="px-4 py-2 rounded-xl bg-gradient-to-r from-blue-600 to-blue-400 text-white border-2 mx-auto border-blue-400  hover:shadow-md hover:shadow-blue-600 w-full">Pay $25</button>
         </form>
       ) : (
         <StripePayment amount={25} orgInfo={orgInfo} onSuccess={handleSuccess} />

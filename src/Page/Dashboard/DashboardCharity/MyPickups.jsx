@@ -11,7 +11,7 @@ const MyPickups = () => {
   useEffect(() => {
     if (user.email) {
       axios
-        .get(`http://localhost:3000/donations/picked-up/${user.email}`)
+        .get(`https://food-donation-server-mu.vercel.app/donations/picked-up/${user.email}`)
         .then(res => setPickups(res.data))
         .catch(() => toast.error('Failed to load pickup donations'));
     }
@@ -19,7 +19,7 @@ const MyPickups = () => {
 //  console.log(pickups)
   const handleConfirmPickup = async (id) => {
     try {
-      await axios.patch(`http://localhost:3000/donation-pickups/${id}/confirm`);
+      await axios.patch(`https://food-donation-server-mu.vercel.app/donation-pickups/${id}/confirm`);
       toast.success('Pickup confirmed');
       setPickups(prev => prev.map(item =>
         item._id === id ? { ...item, status: 'Picked Up' } : item
@@ -34,7 +34,7 @@ const MyPickups = () => {
       <h2 className="text-xl font-bold mb-4">My Assigned Pickups</h2>
       <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
         {pickups.map(pickup => (
-          <div key={pickup._id} className="border p-4 rounded-lg shadow-md bg-white space-y-2">
+          <div key={pickup._id} className="border p-4 rounded-lg shadow-md  space-y-2">
             <h3 className="text-lg font-semibold">{pickup.donationTitle}</h3>
             <p><strong>Restaurant:</strong> {pickup.restaurantName}</p>
             <p><strong>Location:</strong> {pickup.location}</p>

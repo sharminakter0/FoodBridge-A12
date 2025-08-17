@@ -9,7 +9,7 @@ const ManageRoleRequests = () => {
 
   useEffect(() => {
     axios
-      .get(`http://localhost:3000/charity-role-requests`)
+      .get(`https://food-donation-server-mu.vercel.app/charity-role-requests`)
       .then(res => {
       console.log('Fetched requests:', res.data); // 🔍 Check this
       setRequests(res.data);
@@ -22,7 +22,7 @@ const ManageRoleRequests = () => {
 
   const handleAction = async (id, action) => {
     try {
-      await axios.put(`http://localhost:3000/admin/role-requests/${id}`, { action });
+      await axios.put(`https://food-donation-server-mu.vercel.app/admin/role-requests/${id}`, { action });
       toast.success(`Request ${action === 'approve' ? 'approved' : 'rejected'} successfully`);
       setRequests(prev => prev.filter(r => r._id !== id)); // Remove handled request
     } catch (err) {

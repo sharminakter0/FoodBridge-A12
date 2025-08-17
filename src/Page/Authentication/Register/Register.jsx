@@ -45,7 +45,7 @@ const Register = () => {
         createdAt: new Date(), 
       };
 
-      await axios.post(`http://localhost:3000/users/${data.email}`, saveUser);
+      await axios.post(`https://food-donation-server-mu.vercel.app/users/${data.email}`, saveUser);
       toast.success("Account created successfully!");
       navigate('/');
     }

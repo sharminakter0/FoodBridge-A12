@@ -7,7 +7,7 @@ const ManageUsers = () => {
 
   const fetchUsers = async () => {
     try {
-      const res = await axios.get(`http://localhost:3000/users`);
+      const res = await axios.get(`https://food-donation-server-mu.vercel.app/users`);
       setUsers(res.data);
     } catch  {
       toast.error('Failed to load users');
@@ -20,7 +20,7 @@ const ManageUsers = () => {
 
   const handleRoleChange = async (id, role) => {
     try {
-      await axios.put(`http://localhost:3000/users/role/${id}`, { role });
+      await axios.put(`https://food-donation-server-mu.vercel.app/users/role/${id}`, { role });
       toast.success(`Role changed to ${role}`);
       fetchUsers();
     } catch {
@@ -32,7 +32,7 @@ const ManageUsers = () => {
     if (!confirm('Are you sure you want to delete this user?')) return;
 
     try {
-      await axios.delete(`http://localhost:3000/users/${id}`);
+      await axios.delete(`https://food-donation-server-mu.vercel.app/users/${id}`);
       toast.success('User deleted');
       fetchUsers();
     } catch {
@@ -44,8 +44,8 @@ const ManageUsers = () => {
     <div className="p-6">
       <h2 className="text-2xl font-bold mb-4">Manage Users</h2>
       <div className="overflow-x-auto">
-        <table className="table w-full bg-white shadow rounded">
-          <thead className="bg-gray-200">
+        <table className="table w-full  shadow rounded">
+          <thead className="">
             <tr>
               <th>Name</th>
               <th>Email</th>

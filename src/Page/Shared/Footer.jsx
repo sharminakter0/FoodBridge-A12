@@ -1,23 +1,57 @@
 import React from 'react';
-import { Link } from 'react-router'; 
+import { NavLink } from 'react-router'; 
+import logo from '../../assets/Lottie/z7Jq68njio.json'
+import Lottie from 'lottie-react';
 
 const Footer = () => {
   return (
-    <footer className="bg-green-100 text-green-500 py-20 mt-12 rounded">
+    <footer className="bg-blue-50 text-blue-700 py-6 mt-12 rounded">
+         <div className='mb-5'>
+          <Lottie animationData={logo}
+     loop={true}
+     className="w-6 md:w-9 mx-auto  gap-0 ">
+
+               </Lottie>
+       <h2 className='text-xl md:text-2xl -ml-1 bg-gradient-to-r from-blue-700 to-blue-400 bg-clip-text text-transparent text-center font-extrabold'> FoodBridge</h2></div>
       <div className="container mx-auto px-4 flex flex-col  justify-between items-center">
         {/* Links */}
         <div className="mb-7  space-x-6">
-          <Link to="/about" className="hover:text-white">
+                    <NavLink to="/" className={({ isActive }) =>
+          isActive
+            ? 'bg-gradient-to-r  from-blue-700 to-blue-400 bg-clip-text text-transparent font-bold underline'
+            : 'hover:text-blue-800'
+        } >
+           Home
+          </NavLink>
+
+           <NavLink to="/all-donation" className={({ isActive }) =>
+          isActive
+            ? 'bg-gradient-to-r  from-blue-700 to-blue-400 bg-clip-text text-transparent font-bold underline'
+            : 'hover:text-blue-800'
+        } >
+          All Donation
+          </NavLink>
+          <NavLink to="/about" className={({ isActive }) =>
+          isActive
+            ? 'bg-gradient-to-r  from-blue-700 to-blue-400 bg-clip-text text-transparent font-bold underline'
+            : 'hover:text-blue-800'
+        } >
             About
-          </Link>
-          <Link to="/contact" className="hover:text-white">
+          </NavLink>
+          <NavLink to="/contact" className={({ isActive }) =>
+          isActive
+            ? 'bg-gradient-to-r  from-blue-700 to-blue-400 bg-clip-text text-transparent font-bold underline'
+            : 'hover:text-blue-800'
+        } >
             Contact
-          </Link>
+          </NavLink>
         </div>
 
         {/* Social Media */}
-        <div className="flex space-x-6">
-            <h1>Follow Us</h1>
+        <div className="flex flex-col pace-x-6">
+            <h1 className='text-center mb-3'>Follow Us</h1>
+
+            <div className=' flex gap-10 flex-row'>
           <a
             href="https://www.facebook.com/sharminakter0s"
             target="_blank"
@@ -65,8 +99,11 @@ const Footer = () => {
               <path d="M7 2C4.2 2 2 4.2 2 7v10c0 2.8 2.2 5 5 5h10c2.8 0 5-2.2 5-5V7c0-2.8-2.2-5-5-5H7zm10 3a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm-5 2a5 5 0 1 1 0 10 5 5 0 0 1 0-10zm0 2a3 3 0 1 0 0 6 3 3 0 0 0 0-6z" />
             </svg>
           </a>
+          </div>
         </div>
       </div>
+
+      <div className='w-11/12 mx-auto text-green-300 my-4'><hr /></div>
 
       <p className="text-center text-sm mt-4 text-gray-500">
         &copy; {new Date().getFullYear()} FoodBridge. All rights reserved.

@@ -7,14 +7,14 @@ const ManageRequests = () => {
   const [requests, setRequests] = useState([]);
 
   useEffect(() => {
-    axios.get(`http://localhost:3000/donation-requests`)
+    axios.get(`https://food-donation-server-mu.vercel.app/donation-requests`)
       .then(res => setRequests(res.data))
       .catch(() => toast.error('Failed to load donation requests'));
   }, []);
 
   const handleDelete = async (id) => {
     try {
-      await axios.delete(`http://localhost:3000/donation-requests/${id}`);
+      await axios.delete(`https://food-donation-server-mu.vercel.app/donation-requests/${id}`);
       toast.success('Request deleted successfully');
       setRequests(prev => prev.filter(req => req._id !== id));
     } catch (err) {
@@ -27,7 +27,7 @@ const ManageRequests = () => {
       <h2 className="text-2xl font-bold mb-4">Manage Donation Requests</h2>
       <div className="overflow-x-auto">
         <table className="min-w-full table-auto border border-gray-200">
-          <thead className="bg-gray-100">
+          <thead className="">
             <tr>
               <th className="px-4 py-2 border">Donation Title</th>
               <th className="px-4 py-2 border">Charity Name</th>

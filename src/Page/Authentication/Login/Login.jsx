@@ -3,6 +3,7 @@ import { useForm } from 'react-hook-form';
 import { Link, useLocation, useNavigate } from 'react-router';
 import useAuth from '../../../Hooks/UseAuth';
 import GoogleLogin from '../GoogleLogin/GoogleLogin';
+import BackHomebutton from '../../../Component/BackHomebutton/BackHomebutton';
 
 
 const Login = () => {
@@ -24,6 +25,8 @@ const Login = () => {
     return (
         <div className="card bg-base-100 w-full max-w-md shrink-0 shadow-2xl items-center text-center">
             <div className="card-body">
+                <div className='flex justify-center'>
+      <BackHomebutton></BackHomebutton></div>
                 <h1 className="text-3xl font-bold bg-gradient-to-r from-blue-600 to-blue-300 bg-clip-text text-transparent">Welcome to FoodBridge</h1>
                 <form onSubmit={handleSubmit(onSubmit)}>
                     <fieldset className="fieldset">

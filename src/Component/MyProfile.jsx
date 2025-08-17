@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from 'react';
 
 
-import useAuth from '../../../Hooks/UseAuth';
+import useAuth from '../Hooks/UseAuth';
 import toast from 'react-hot-toast';
-import getAxiosWithFirebaseToken from '../../../hook/useAxiosWithToken';
+import getAxiosWithFirebaseToken from '../hook/useAxiosWithToken';
 
 const MyProfile = () => {
   const { user } = useAuth();
@@ -54,7 +54,7 @@ const MyProfile = () => {
   if (!dbUser) return <p className="text-center mt-10">Loading profile...</p>;
 
   return (
-    <div className="max-w-xl mx-auto mt-10 p-6 bg-white shadow-lg rounded-lg">
+    <div className="max-w-xl mx-auto mt-10 p-6 bg-base-100 shadow-lg border-2 border-blue-400 rounded-lg">
       <div className="flex flex-col items-center">
         <img src={dbUser.photoURL} alt="User" className="w-24 h-24 rounded-full border" />
         <h2 className="text-2xl font-bold mt-4">{dbUser.name}</h2>

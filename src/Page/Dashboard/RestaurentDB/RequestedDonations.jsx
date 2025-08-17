@@ -9,7 +9,7 @@ const RequestedDonations = () => {
 
   useEffect(() => {
     // if (user.email) {
-      axios.get(`http://localhost:3000/donation-requests`)
+      axios.get(`https://food-donation-server-mu.vercel.app/donation-requests`)
         .then(res => setRequests(res.data))
         .catch(err => console.error(err));
     // }
@@ -17,7 +17,7 @@ const RequestedDonations = () => {
 
   const handleStatusChange = async (id, status, donationId) => {
     try {
-      const res = await axios.patch(`http://localhost:3000/donation-requests/${id}/status`, {
+      const res = await axios.patch(`https://food-donation-server-mu.vercel.app/donation-requests/${id}/status`, {
         status,
         donationId,
       });

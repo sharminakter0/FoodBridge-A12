@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { NavLink, Outlet } from 'react-router';
+import { Link, NavLink, Outlet } from 'react-router';
 import axios from 'axios';
 import useAuth from '../../../Hooks/UseAuth';
 import FoodBridgeLogo from '../../Shared/FoodBridgeLogo/FoodBridgeLogo';
@@ -11,7 +11,7 @@ const DashboardLayout = () => {
 
   useEffect(() => {
     if (user?.email) {
-      axios.get(`http://localhost:3000/users/role/${user.email}`)
+      axios.get(`https://food-donation-server-mu.vercel.app/users/role/${user.email}`)
         .then(res => setRole(res.data.role))
         .catch(err => console.error(err));
     }
@@ -26,18 +26,18 @@ const DashboardLayout = () => {
           <NavLink
           className={({ isActive }) =>
           isActive
-            ? 'bg-gradient-to-r from-[#27D6F5] to-[#27F5B4] bg-clip-text text-transparent font-bold underline'
-            : 'hover:text-green-600'
+            ? 'bg-gradient-to-r from-[#272ef5] to-[#369adc] bg-clip-text text-transparent font-bold underline'
+            : 'hover:text-blue-800'
         }
            to="/">Home</NavLink>
         </li>
-      <li><NavLink  
+      {/* <li><NavLink  
       className={({ isActive }) =>
           isActive
             ? 'bg-gradient-to-r from-[#27D6F5] to-[#27F5B4] bg-clip-text text-transparent font-bold underline'
             : 'hover:text-green-600'
         }
-         to="/dashboard/my-profile">My Profile</NavLink></li>
+         to="/dashboard/my-profile">My Profile</NavLink></li> */}
 
        
     </>
@@ -45,29 +45,35 @@ const DashboardLayout = () => {
 
   const userLinks = (
     <>
+           <li><NavLink className={({ isActive }) =>
+          isActive
+            ? 'bg-gradient-to-r from-[#272ef5] to-[#369adc] bg-clip-text text-transparent font-bold underline'
+            : 'hover:text-blue-800'
+        }
+         to="/dashboard/donation-statistics">Donation Statistics</NavLink></li>
       <li><NavLink 
       className={({ isActive }) =>
           isActive
-            ? 'bg-gradient-to-r from-[#27D6F5] to-[#27F5B4] bg-clip-text text-transparent font-bold underline'
-            : 'hover:text-green-600'
+            ? 'bg-gradient-to-r from-[#272ef5] to-[#369adc] bg-clip-text text-transparent font-bold underline'
+            : 'hover:text-blue-800'
         }
          to="/dashboard/request-charity-role">Request Charity Role</NavLink></li>
       <li><NavLink className={({ isActive }) =>
           isActive
-            ? 'bg-gradient-to-r from-[#27D6F5] to-[#27F5B4] bg-clip-text text-transparent font-bold underline'
-            : 'hover:text-green-600'
+            ? 'bg-gradient-to-r from-[#272ef5] to-[#369adc] bg-clip-text text-transparent font-bold underline'
+            : 'hover:text-blue-800'
         }
          to="/dashboard/favorites">Favorites</NavLink></li>
       <li><NavLink className={({ isActive }) =>
           isActive
-            ? 'bg-gradient-to-r from-[#27D6F5] to-[#27F5B4] bg-clip-text text-transparent font-bold underline'
-            : 'hover:text-green-600'
+            ? 'bg-gradient-to-r from-[#272ef5] to-[#369adc] bg-clip-text text-transparent font-bold underline'
+            : 'hover:text-blue-800'
         }
          to="/dashboard/my-reviews">My Reviews</NavLink></li>
       <li><NavLink className={({ isActive }) =>
           isActive
-            ? 'bg-gradient-to-r from-[#27D6F5] to-[#27F5B4] bg-clip-text text-transparent font-bold underline'
-            : 'hover:text-green-600'
+            ? 'bg-gradient-to-r from-[#272ef5] to-[#369adc] bg-clip-text text-transparent font-bold underline'
+            : 'hover:text-blue-800'
         }
          to="/dashboard/transaction-history">Transaction History</NavLink></li>
     </>
@@ -78,27 +84,27 @@ const DashboardLayout = () => {
 
        <li><NavLink className={({ isActive }) =>
           isActive
-            ? 'bg-gradient-to-r from-[#27D6F5] to-[#27F5B4] bg-clip-text text-transparent font-bold underline'
-            : 'hover:text-green-600'
+            ? 'bg-gradient-to-r from-[#272ef5] to-[#369adc] bg-clip-text text-transparent font-bold underline'
+            : 'hover:text-blue-800'
         }
          to="/dashboard/donation-statistics">Donation Statistics</NavLink></li>
      
       <li><NavLink className={({ isActive }) =>
           isActive
-            ? 'bg-gradient-to-r from-[#27D6F5] to-[#27F5B4] bg-clip-text text-transparent font-bold underline'
-            : 'hover:text-green-600'
+            ? 'bg-gradient-to-r from-[#272ef5] to-[#369adc] bg-clip-text text-transparent font-bold underline'
+            : 'hover:text-blue-800'
         }
          to="/dashboard/add-donation">Add Donation</NavLink></li>
       <li><NavLink className={({ isActive }) =>
           isActive
-            ? 'bg-gradient-to-r from-[#27D6F5] to-[#27F5B4] bg-clip-text text-transparent font-bold underline'
-            : 'hover:text-green-600'
+            ? 'bg-gradient-to-r from-[#272ef5] to-[#369adc] bg-clip-text text-transparent font-bold underline'
+            : 'hover:text-blue-800'
         }
          to="/dashboard/my-donations">My Donations</NavLink></li>
       <li><NavLink className={({ isActive }) =>
           isActive
-            ? 'bg-gradient-to-r from-[#27D6F5] to-[#27F5B4] bg-clip-text text-transparent font-bold underline'
-            : 'hover:text-green-600'
+            ? 'bg-gradient-to-r from-[#272ef5] to-[#369adc] bg-clip-text text-transparent font-bold underline'
+            : 'hover:text-blue-800'
         }
          to="/dashboard/requested-donations">Requested Donations</NavLink></li>
     </>
@@ -106,23 +112,29 @@ const DashboardLayout = () => {
 
   const charityLinks = (
     <>
+              <li><NavLink className={({ isActive }) =>
+          isActive
+            ? 'bg-gradient-to-r from-[#272ef5] to-[#369adc] bg-clip-text text-transparent font-bold underline'
+            : 'hover:text-blue-800'
+        }
+         to="/dashboard/donation-statistics">Donation Statistics</NavLink></li>
       
       <li><NavLink className={({ isActive }) =>
           isActive
-            ? 'bg-gradient-to-r from-[#27D6F5] to-[#27F5B4] bg-clip-text text-transparent font-bold underline'
-            : 'hover:text-green-600'
+            ? 'bg-gradient-to-r from-[#272ef5] to-[#369adc] bg-clip-text text-transparent font-bold underline'
+            : 'hover:text-blue-800'
         }
          to="/dashboard/my-requests">My Requests</NavLink></li>
       <li><NavLink className={({ isActive }) =>
           isActive
-            ? 'bg-gradient-to-r from-[#27D6F5] to-[#27F5B4] bg-clip-text text-transparent font-bold underline'
-            : 'hover:text-green-600'
+            ? 'bg-gradient-to-r from-[#272ef5] to-[#369adc] bg-clip-text text-transparent font-bold underline'
+            : 'hover:text-blue-800'
         }
          to="/dashboard/my-pickups">My Pickups</NavLink></li>
       <li><NavLink className={({ isActive }) =>
           isActive
-            ? 'bg-gradient-to-r from-[#27D6F5] to-[#27F5B4] bg-clip-text text-transparent font-bold underline'
-            : 'hover:text-green-600'
+            ? 'bg-gradient-to-r from-[#272ef5] to-[#369adc] bg-clip-text text-transparent font-bold underline'
+            : 'hover:text-blue-800'
         }
          to="/dashboard/received-donation">Received Donations
 
@@ -130,8 +142,8 @@ const DashboardLayout = () => {
       
       <li><NavLink className={({ isActive }) =>
           isActive
-            ? 'bg-gradient-to-r from-[#27D6F5] to-[#27F5B4] bg-clip-text text-transparent font-bold underline'
-            : 'hover:text-green-600'
+            ? 'bg-gradient-to-r from-[#272ef5] to-[#369adc] bg-clip-text text-transparent font-bold underline'
+            : 'hover:text-blue-800'
         }
          to="/dashboard/transaction-history">Transaction History
       </NavLink></li>
@@ -140,36 +152,43 @@ const DashboardLayout = () => {
 
   const adminLinks = (
     <>
+       
+             <li><NavLink className={({ isActive }) =>
+          isActive
+            ? 'bg-gradient-to-r from-[#272ef5] to-[#369adc] bg-clip-text text-transparent font-bold underline'
+            : 'hover:text-blue-800'
+        }
+         to="/dashboard/donation-statistics">Donation Statistics</NavLink></li>
       <li><NavLink className={({ isActive }) =>
           isActive
-            ? 'bg-gradient-to-r from-[#27D6F5] to-[#27F5B4] bg-clip-text text-transparent font-bold underline'
-            : 'hover:text-green-600'
+            ? 'bg-gradient-to-r from-[#272ef5] to-[#369adc] bg-clip-text text-transparent font-bold underline'
+            : 'hover:text-blue-800'
         }
          to="/dashboard/manage-donations">Manage Donations</NavLink></li>
       <li><NavLink className={({ isActive }) =>
           isActive
-            ? 'bg-gradient-to-r from-[#27D6F5] to-[#27F5B4] bg-clip-text text-transparent font-bold underline'
-            : 'hover:text-green-600'
+            ? 'bg-gradient-to-r from-[#272ef5] to-[#369adc] bg-clip-text text-transparent font-bold underline'
+            : 'hover:text-blue-800'
         }
          to="/dashboard/manage-users">Manage Users</NavLink></li>
       <li><NavLink className={({ isActive }) =>
           isActive
-            ? 'bg-gradient-to-r from-[#27D6F5] to-[#27F5B4] bg-clip-text text-transparent font-bold underline'
-            : 'hover:text-green-600'
+            ? 'bg-gradient-to-r from-[#272ef5] to-[#369adc] bg-clip-text text-transparent font-bold underline'
+            : 'hover:text-blue-800'
         }
          to="/dashboard/manage-role-requests">Manage Role Requests</NavLink></li>
 
       <li><NavLink className={({ isActive }) =>
           isActive
-            ? 'bg-gradient-to-r from-[#27D6F5] to-[#27F5B4] bg-clip-text text-transparent font-bold underline'
-            : 'hover:text-green-600'
+            ? 'bg-gradient-to-r from-[#272ef5] to-[#369adc] bg-clip-text text-transparent font-bold underline'
+            : 'hover:text-blue-800'
         }
          to="/dashboard/manage-requests">Manage Requests</NavLink></li>
       
       <li><NavLink className={({ isActive }) =>
           isActive
-            ? 'bg-gradient-to-r from-[#27D6F5] to-[#27F5B4] bg-clip-text text-transparent font-bold underline'
-            : 'hover:text-green-600'
+            ? 'bg-gradient-to-r from-[#272ef5] to-[#369adc] bg-clip-text text-transparent font-bold underline'
+            : 'hover:text-blue-800'
         }
          to="/dashboard/feature-donations">Feature Donations</NavLink></li>
     </>
@@ -182,7 +201,7 @@ const DashboardLayout = () => {
       {/* Page Content */}
       <div className="drawer-content flex flex-col">
         {/* Navbar */}
-        <div className="w-full navbar bg-base-300 px-4 lg:px-8">
+        <div className="w-full navbar sticky top-0 z-50  bg-blue-50 px-4 lg:px-8   flex justify-between items-center">
           <div className="flex-none lg:hidden">
             <label htmlFor="dashboard-drawer" className="btn btn-square btn-ghost">
               <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none"
@@ -192,8 +211,23 @@ const DashboardLayout = () => {
               </svg>
             </label>
           </div>
-          <div className=" gap-50 text-xl font-bold">  <FoodBridgeLogo></FoodBridgeLogo></div>
+          <div className=" flex items-center">  <FoodBridgeLogo    className=""></FoodBridgeLogo> </div>
+                    <div className="flex items-center">
+            <div className="flex-end dropdown  dropdown-end">
+              
+              <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
+                
+                <div className="w-10 rounded-full border-2 border-blue-400">
+                  <img src={user.photoURL} alt="user" />
+                </div>
+              </label>
+             
+            </div>
+          </div>
+         
         </div>
+
+
 
         {/* Nested page content */}
         <div className="p-4">
@@ -204,7 +238,7 @@ const DashboardLayout = () => {
       {/* Drawer Sidebar */}
       <div className="drawer-side ">
         <label htmlFor="dashboard-drawer" className="drawer-overlay"></label>
-        <ul className="menu p-4 w-80 min-h-full bg-green-100 text-base-content ">
+        <ul className="menu p-4 w-80 min-h-full bg-blue-100 text-blue-700 ">
           <h2 className="text-2xl font-bold mb-4">Dashboard</h2>
 
           {commonLinks}

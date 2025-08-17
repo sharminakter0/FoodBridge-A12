@@ -10,7 +10,7 @@ import Login from "../Page/Authentication/Login/Login";
 import Register from "../Page/Authentication/Register/Register";
 import PrivateRouter from "../Hooks/PrivateRouter"
 import DashboardLayout from "../Page/Dashboard/DashboardLayout/DashboardLayout";
-import  MyProfile from "../Page/Dashboard/UserDashboard/MyProfile"
+// import  MyProfile from "../Page/Dashboard/UserDashboard/MyProfile"
 import RequestCharityRole from "../Page/Dashboard/UserDashboard/RequestCharityRole";
 import Favorites from "../Page/Dashboard/UserDashboard/Favorites";
 import MyReviews from "../Page/Dashboard/UserDashboard/MyReviews";
@@ -32,6 +32,7 @@ import AboutPage from "../Page/AboutPage/AboutPage.jsx";
 import ContactPage from "../Page/ContactPage/ContactPage.jsx";
 import ErrorPage from "../Page/ErrorPage/ErrorPage.jsx";
 import DonationStatistics from "../Page/Dashboard/RestaurentDB/DonationStatistics/DonationStatistics.jsx";
+import MyProfile from "../Component/MyProfile.jsx";
 
 
 
@@ -49,7 +50,7 @@ export const router = createBrowserRouter([
         },
          {
             path:"/all-donation",
-            element:<PrivateRouter><AllDonation></AllDonation></PrivateRouter> 
+            element:<AllDonation></AllDonation> 
         },
 
         {
@@ -67,6 +68,10 @@ export const router = createBrowserRouter([
           element:<PrivateRouter><DonationDetails></DonationDetails></PrivateRouter>
         
   },
+  {
+    path:"/my-profile",
+    element:<MyProfile></MyProfile>
+  }
         
      
        
@@ -93,15 +98,19 @@ export const router = createBrowserRouter([
     element: <PrivateRouter> <DashboardLayout></DashboardLayout></PrivateRouter>,
     children:[
 
-      {
-        index:true,
-        element:<MyProfile/>
-      },
-      {
-        path:"my-profile",
-        element:<MyProfile></MyProfile>
-      },
+      // {
+      //   index:true,
+      //   element:<MyProfile/>
+      // },
+      // {
+      //   path:"my-profile",
+      //   element:<MyProfile></MyProfile>
+      // },
       //  routes for User
+        {
+        index:true,
+        element:<DonationStatistics></DonationStatistics>
+      },
       {
         path:"/dashboard/request-charity-role",
         element:<RequestCharityRole></RequestCharityRole>
@@ -124,6 +133,11 @@ export const router = createBrowserRouter([
 
 
       // Routes for Restaurent
+
+      // {
+      //   index:true,
+      //   element:<DonationStatistics></DonationStatistics>
+      // },
 
       {
         path:"/dashboard/donation-statistics",
@@ -149,6 +163,11 @@ export const router = createBrowserRouter([
 
       // Charity Role
 
+      // {
+      //   index:true,
+      //   element:<MyRequests></MyRequests>
+      // }
+,
       {
         path:"/dashboard/my-requests",
         element:<MyRequests></MyRequests>
@@ -166,6 +185,12 @@ export const router = createBrowserRouter([
 
 
       // Admin Role
+
+      // {
+      //   index:true,
+      //   element:<ManageDonations></ManageDonations>
+      // },
+
 
       {
         path:"/dashboard/manage-donations",

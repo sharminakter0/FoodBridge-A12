@@ -82,10 +82,10 @@ const AddDonation = () => {
   };
 
   return (
-    <div className="max-w-3xl mx-auto bg-white p-6 rounded-lg shadow-md mt-8 mb-8">
+    <div className="max-w-3xl mx-auto bg-base-100 p-6 rounded-lg shadow-md mt-8 mb-8">
       <h2 className="text-3xl font-bold mb-6 text-center  bg-gradient-to-r from-blue-600 to-blue-300 bg-clip-text text-transparent">Add Food Donation</h2>
 
-      <p className="text-sm mb-7 text-center text-gray-500">Share your surplus food with local charities and communities in need. Fill out the form below to submit a donation. Every contribution helps reduce waste and make a meaningful difference.</p>
+      <p className="text-sm mb-7 text-center ">Share your surplus food with local charities and communities in need. Fill out the form below to submit a donation. Every contribution helps reduce waste and make a meaningful difference.</p>
 
       <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-7">
@@ -139,7 +139,7 @@ const AddDonation = () => {
             <label className="label">Restaurant Name</label>
             <input
               type="text"
-              className="input input-bordered w-full bg-gray-100"
+              className="input input-bordered w-full bg-base-300"
               defaultValue={user?.displayName}
               readOnly
             />
@@ -149,7 +149,7 @@ const AddDonation = () => {
             <label className="label">Restaurant Email</label>
             <input
               type="email"
-              className="input input-bordered w-full bg-gray-100"
+              className="input input-bordered w-full bg-base-300"
               defaultValue={user?.email}
               readOnly
             />

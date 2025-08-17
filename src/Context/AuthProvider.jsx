@@ -42,7 +42,7 @@ const AuthProvider = ({ children }) => {
       if (currentUser?.email) {
         try {
           
-          const res = await axios.get(`http://localhost:3000/users/${currentUser.email}`);
+          const res = await axios.get(`https://food-donation-server-mu.vercel.app/users/${currentUser.email}`);
           const dbUser = res.data;
 
           setUser({
