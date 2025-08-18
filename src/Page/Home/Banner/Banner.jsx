@@ -60,7 +60,7 @@ const Banner = () => {
                 {/* text section */}
                 <div className="text-center lg:text-left">
                   <motion.h1
-                    className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-blue-700 to-blue-400 bg-clip-text text-transparent mb-4"
+                    className="text-3xl md:text-4xl font-bold bg-gradient-to-r from-blue-700 to-blue-400 bg-clip-text text-transparent mb-3"
                     initial={{ opacity: 0, y: -20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.6, delay: 0.3 }}

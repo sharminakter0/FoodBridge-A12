@@ -31,13 +31,13 @@ const DashboardLayout = () => {
         }
            to="/">Home</NavLink>
         </li>
-      {/* <li><NavLink  
+      <li><NavLink  
       className={({ isActive }) =>
           isActive
-            ? 'bg-gradient-to-r from-[#27D6F5] to-[#27F5B4] bg-clip-text text-transparent font-bold underline'
-            : 'hover:text-green-600'
+            ? 'bg-gradient-to-r from-[#272ef5] to-[#369adc] bg-clip-text text-transparent font-bold underline'
+            : 'hover:text-blue-800'
         }
-         to="/dashboard/my-profile">My Profile</NavLink></li> */}
+         to="/dashboard/my-profile">My Profile</NavLink></li>
 
        
     </>
@@ -45,12 +45,7 @@ const DashboardLayout = () => {
 
   const userLinks = (
     <>
-           <li><NavLink className={({ isActive }) =>
-          isActive
-            ? 'bg-gradient-to-r from-[#272ef5] to-[#369adc] bg-clip-text text-transparent font-bold underline'
-            : 'hover:text-blue-800'
-        }
-         to="/dashboard/donation-statistics">Donation Statistics</NavLink></li>
+
       <li><NavLink 
       className={({ isActive }) =>
           isActive
@@ -82,12 +77,7 @@ const DashboardLayout = () => {
   const restaurantLinks = (
     <>
 
-       <li><NavLink className={({ isActive }) =>
-          isActive
-            ? 'bg-gradient-to-r from-[#272ef5] to-[#369adc] bg-clip-text text-transparent font-bold underline'
-            : 'hover:text-blue-800'
-        }
-         to="/dashboard/donation-statistics">Donation Statistics</NavLink></li>
+       
      
       <li><NavLink className={({ isActive }) =>
           isActive
@@ -112,12 +102,7 @@ const DashboardLayout = () => {
 
   const charityLinks = (
     <>
-              <li><NavLink className={({ isActive }) =>
-          isActive
-            ? 'bg-gradient-to-r from-[#272ef5] to-[#369adc] bg-clip-text text-transparent font-bold underline'
-            : 'hover:text-blue-800'
-        }
-         to="/dashboard/donation-statistics">Donation Statistics</NavLink></li>
+           
       
       <li><NavLink className={({ isActive }) =>
           isActive
@@ -153,12 +138,7 @@ const DashboardLayout = () => {
   const adminLinks = (
     <>
        
-             <li><NavLink className={({ isActive }) =>
-          isActive
-            ? 'bg-gradient-to-r from-[#272ef5] to-[#369adc] bg-clip-text text-transparent font-bold underline'
-            : 'hover:text-blue-800'
-        }
-         to="/dashboard/donation-statistics">Donation Statistics</NavLink></li>
+           
       <li><NavLink className={({ isActive }) =>
           isActive
             ? 'bg-gradient-to-r from-[#272ef5] to-[#369adc] bg-clip-text text-transparent font-bold underline'

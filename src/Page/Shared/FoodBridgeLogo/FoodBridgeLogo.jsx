@@ -11,7 +11,9 @@ const FoodBridgeLogo = () => {
      className="w-6 md:w-9 mx-auto  gap-0 ">
 
                </Lottie>
-                <p className='text-xl md:text-2xl -ml-1 bg-gradient-to-r from-blue-700 to-blue-400 bg-clip-text text-transparent font-extrabold'> FoodBridge</p>
+                <h2 className="text-2xl font-extrabold bg-gradient-to-r from-blue-700 to-green-500 bg-clip-text text-transparent">
+              FoodBridge
+            </h2>
             </div>
         </Link>
     );

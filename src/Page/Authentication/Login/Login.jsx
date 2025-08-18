@@ -55,7 +55,7 @@ const Login = () => {
 
                         <div className='text-start'><a className="link link-hover">Forgot password?</a></div>
 
-                        <button type='submit' className= "btn w-full  bg-[#b3e917] text-black mt-2">Login</button>
+                        <button type='submit' className= "btn w-full  bg-gradient-to-r from-blue-500 to-green-400 text-black mt-2">Login</button>
                     </fieldset>
                     <p><small>Create New Account<Link state={{ from }} className=" text-blue-600 ml-4 underline" to="/register">Register</Link></small></p>
                    <GoogleLogin></GoogleLogin>

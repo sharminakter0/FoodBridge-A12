@@ -76,7 +76,7 @@ const Navbar = () => {
             ? 'bg-gradient-to-r  from-blue-700 to-blue-400 bg-clip-text text-transparent font-bold underline'
             : 'hover:text-blue-800'
         } 
-        to="/my-profile">My Profile</NavLink></li>
+        to="/donation-statistics">Donation Statistics</NavLink></li>
 
         
        )
@@ -89,7 +89,7 @@ const Navbar = () => {
   
 
   return (
-    <div className="navbar px-3  lg:px-11 sticky top-0 left-0 z-50 mb-4 bg-blue-50 shadow-md ">
+    <div className="navbar px-3  lg:px-11 sticky top-0 left-0 z-50 mb-4 bg-gradient-to-r from-blue-50 to-green-50 text-blue-800 shadow-md ">
       {/* Left Side */}
       <div className="navbar-start">
         <div className="dropdown">
@@ -118,7 +118,7 @@ const Navbar = () => {
       <div className="navbar-end gap-3 ">
         <ThemeToggle ></ThemeToggle>
         {user ? (
-          <div className="flex items-center gap-3">
+          <div className="flex items-center gap-2">
             {/* User Name */}
             <p className="font-semibold text-blue-700 hidden md:block">{user.displayName || 'user'}</p>
 

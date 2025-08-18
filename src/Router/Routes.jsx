@@ -65,13 +65,13 @@ export const router = createBrowserRouter([
          {
     
           path:"/donations/:id",
-          element:<PrivateRouter><DonationDetails></DonationDetails></PrivateRouter>
+          element:<DonationDetails></DonationDetails>
         
   },
   {
-    path:"/my-profile",
-    element:<MyProfile></MyProfile>
-  }
+        path:"/donation-statistics",
+        element:<DonationStatistics></DonationStatistics>
+      },
         
      
        
@@ -98,14 +98,14 @@ export const router = createBrowserRouter([
     element: <PrivateRouter> <DashboardLayout></DashboardLayout></PrivateRouter>,
     children:[
 
-      // {
-      //   index:true,
-      //   element:<MyProfile/>
-      // },
-      // {
-      //   path:"my-profile",
-      //   element:<MyProfile></MyProfile>
-      // },
+      {
+        index:true,
+        element:<MyProfile/>
+      },
+      {
+        path:"my-profile",
+        element:<MyProfile></MyProfile>
+      },
       //  routes for User
         {
         index:true,
@@ -139,10 +139,7 @@ export const router = createBrowserRouter([
       //   element:<DonationStatistics></DonationStatistics>
       // },
 
-      {
-        path:"/dashboard/donation-statistics",
-        element:<DonationStatistics></DonationStatistics>
-      },
+     
       {
         path:"/dashboard/add-donation",
         element:<AddDonation></AddDonation>
@@ -167,7 +164,7 @@ export const router = createBrowserRouter([
       //   index:true,
       //   element:<MyRequests></MyRequests>
       // }
-,
+
       {
         path:"/dashboard/my-requests",
         element:<MyRequests></MyRequests>

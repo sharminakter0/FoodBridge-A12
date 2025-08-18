@@ -15,7 +15,7 @@ const LatestCharityRequests = () => {
   }, []);
 
   return (
-    <div className=" py-10">
+    <div className="  py-10">
       <h2 className="text-3xl font-bold text-center mb-4  bg-gradient-to-r from-green-500  to-blue-400 bg-clip-text text-transparent">
         Latest Charity Requests
       </h2>

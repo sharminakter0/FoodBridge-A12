@@ -6,6 +6,7 @@ import GoogleLogin from '../GoogleLogin/GoogleLogin';
 import axios from 'axios'; 
 import toast from 'react-hot-toast';
 import { updateProfile } from 'firebase/auth';
+import BackHomebutton from '../../../Component/BackHomebutton/BackHomebutton';
 
 
 const Register = () => {
@@ -64,6 +65,8 @@ const Register = () => {
   return (
     <div className="card bg-base-100 w-full max-w-md shrink-0 shadow-2xl mx-auto mt-10 text-center items-center">
       <div className="card-body">
+
+        <BackHomebutton></BackHomebutton>
         <h1 className="text-3xl font-bold  bg-gradient-to-r from-blue-600 to-blue-300 bg-clip-text text-transparent text-center">Create An New Account</h1>
         <form onSubmit={handleSubmit(onSubmit)}>
           <fieldset className="fieldset space-y-3">
@@ -126,7 +129,7 @@ const Register = () => {
               )}
           
 
-            <button type="submit" className="btn bg-[#b3e917] w-full mt-2">Register</button>
+            <button type="submit" className="btn bg-gradient-to-r from-blue-500 to-green-400 text-black w-full mt-2">Register</button>
           </fieldset>
 
           <p className="mt-4 text-sm text-center">
