@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { FaUsers, FaChartPie } from 'react-icons/fa';
 import CountUp from 'react-countup';
 import { motion } from 'framer-motion';
-import UseAxiosSecure from '../../Hooks/UseAxiosSecure';
+import axios from 'axios';
 
 const UserStatistics = () => {
   const [stats, setStats] = useState({
@@ -13,12 +13,12 @@ const UserStatistics = () => {
     charity: 0,
   });
   const [loading, setLoading] = useState(true);
-  const axiosSecure = UseAxiosSecure();
 
   useEffect(() => {
     const fetchStats = async () => {
       try {
-        const res = await axiosSecure.get('/users');
+        const res = await axios.get(`https://food-donation-server-mu.vercel.app/users`); 
+        // 👆 replace with your backend base URL if needed
         const allUsers = res.data;
 
         setStats({

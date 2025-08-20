@@ -1,15 +1,21 @@
-import React, { useState, useRef } from "react";
+import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 import SuccessImage from "../../../public/gettyimages-1430371766-612x612.jpg"; // replace with your image path
+
+// Animation variants
+const fadeInUp = {
+  hidden: { opacity: 0, y: 40 },
+  visible: { opacity: 1, y: 0 },
+};
 
 const SuccessStoryBanner = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   // Observer for scroll animation
   const { ref, inView } = useInView({
-    triggerOnce: true, // animate only once
-    threshold: 0.2, // 20% visible triggers animation
+    triggerOnce: true,
+    threshold: 0.2,
   });
 
   return (
@@ -19,16 +25,17 @@ const SuccessStoryBanner = () => {
     >
       {/* Left side: Title & Description */}
       <motion.div
-        className="space-y-6"
-        initial={{ x: -100, opacity: 0 }}
-        animate={inView ? { x: 0, opacity: 1 } : {}}
-        transition={{ duration: 1 }}
+        className="space-y-6 w-full"
+        variants={fadeInUp}
+        initial="hidden"
+        animate={inView ? "visible" : "hidden"}
+        transition={{ duration: 0.8 }}
       >
         <p className="text-green-400 font-semibold">Success Story</p>
-        <h2 className="text-4xl font-bold bg-gradient-to-r from-blue-700 to-blue-400 bg-clip-text text-transparent leading-tight">
+        <h2 className="text-3xl md:text-4xl font-bold bg-gradient-to-r from-blue-700 to-blue-400 bg-clip-text text-transparent leading-tight">
           We Help Fellow Nonprofits Access <br /> The Funding Tools, Training
         </h2>
-        <p className=" max-w-lg">
+        <p className="max-w-lg text-sm md:text-base">
           Our secure online donation platform allows you to make contributions
           quickly and safely. Choose from various payment methods and set up
           one-time or recurring donations easily.
@@ -43,10 +50,11 @@ const SuccessStoryBanner = () => {
 
       {/* Right side: Image */}
       <motion.div
-        className=""
-        initial={{ x: 100, opacity: 0 }}
-        animate={inView ? { x: 0, opacity: 1 } : {}}
-        transition={{ duration: 1 }}
+        className="w-full h-full"
+        variants={fadeInUp}
+        initial="hidden"
+        animate={inView ? "visible" : "hidden"}
+        transition={{ duration: 0.8, delay: 0.2 }}
       >
         <img
           src={SuccessImage}
@@ -66,9 +74,9 @@ const SuccessStoryBanner = () => {
           >
             <motion.div
               className="bg-base-100 rounded-xl p-6 max-w-lg w-full shadow-xl relative"
-              initial={{ scale: 0.8, opacity: 0 }}
+              initial={{ scale: 0.9, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
-              exit={{ scale: 0.8, opacity: 0 }}
+              exit={{ scale: 0.9, opacity: 0 }}
               transition={{ duration: 0.3 }}
             >
               <button
@@ -78,7 +86,7 @@ const SuccessStoryBanner = () => {
                 ✕
               </button>
               <h3 className="text-2xl font-bold mb-4">Our Success Story</h3>
-              <p className="leading-relaxed">
+              <p className="leading-relaxed text-sm md:text-base">
                 We have successfully helped multiple nonprofits raise funds and
                 reach more people. This platform empowers charities to grow,
                 connect with donors, and continue their life-changing missions.

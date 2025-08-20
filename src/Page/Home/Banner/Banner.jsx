@@ -47,7 +47,7 @@ const Banner = () => {
         {slides.map((slide, index) => (
           <div key={index} className="">
             <div className="hero min-h-[70vh] px-15   ">
-              <div className="hero-content flex-col lg:flex-row-reverse gap-20">
+              <div className="hero-content flex-col lg:flex-row-reverse gap-9 md:gap-20">
                 <motion.img
                   src={slide.img}
                   className="max-w-sm w-full lg:h-60  h-40   rounded-br-[40px] border-2 border-blue-300  rounded-lg shadow-2xl"
@@ -80,7 +80,7 @@ const Banner = () => {
                     animate={{ opacity: 1 }}
                     transition={{ duration: 0.6, delay: 0.7 }}
                   >
-                    <Link to={slide.btnLink} className=" bg-gradient-to-r  from-blue-700 to-blue-400 font-bold text-white btn mt-2">
+                    <Link to={slide.btnLink} className=" bg-gradient-to-r  from-blue-700 to-blue-400 font-bold text-white btn mt-1">
                       {slide.btnText}
                     </Link>
                   </motion.div>

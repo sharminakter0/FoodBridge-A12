@@ -43,7 +43,7 @@ const ContactPage = () => {
   };
 
   return (
-    <div className=" ">
+    <div className=" w-11/12 mx-auto">
       <h1 className="text-4xl font-bold text-center bg-gradient-to-r from-green-500 to-blue-400 bg-clip-text text-transparent mb-6">
         Contact to Us
       </h1>

@@ -11,6 +11,7 @@ import ContactPage from '../../ContactPage/ContactPage';
 
 const Home = () => {
     return (
+      <>
         <div className=" w-11/12 mx-auto">
           <Banner/>
           <ImpactStats></ImpactStats>
@@ -24,9 +25,11 @@ const Home = () => {
           
           <CommunityStories></CommunityStories>
 
-          <ContactPage></ContactPage>
+         
           
         </div>
+        <ContactPage></ContactPage>
+        </>
     );
 };
 

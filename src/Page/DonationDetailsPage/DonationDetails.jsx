@@ -57,7 +57,7 @@ const DonationDetails = () => {
       charityEmail: user.email,
       requestDescription,
       pickupTime,
-      location: donation.location, // ✅ fixed
+      location: donation.location,
       status: "Pending",
     };
 
@@ -100,106 +100,81 @@ const DonationDetails = () => {
     <div className="w-11/12 mx-auto py-12">
       {/* Title */}
       <motion.h2
-        className="text-4xl font-bold text-center bg-gradient-to-r from-green-500 to-blue-500 bg-clip-text text-transparent mb-8"
-        initial={{ opacity: 0, y: -30 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8 }}
+        className="text-3xl md:text-4xl font-bold text-center bg-gradient-to-r from-green-500 to-blue-500 bg-clip-text text-transparent mb-8"
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+        transition={{ duration: 0.6 }}
       >
         {donation.title}
       </motion.h2>
 
       {/* Image */}
-      <motion.img
-        src={donation.image}
-        alt={donation.title}
-        className="w-full h-80 md:h-[450px] object-cover rounded-2xl shadow-lg mb-8"
-        initial={{ opacity: 0, scale: 0.95 }}
-        whileInView={{ opacity: 1, scale: 1 }}
-        transition={{ duration: 1 }}
-      />
+      <motion.div
+        className="mb-8"
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+        transition={{ duration: 0.8 }}
+      >
+        <img
+          src={donation.image}
+          alt={donation.title}
+          className="w-full h-80 md:h-[450px] object-cover rounded-2xl shadow-lg"
+        />
+      </motion.div>
 
       {/* Donation Info */}
       <motion.div
         className="bg-base-100 p-6 rounded-2xl shadow-md space-y-3"
-        initial={{ opacity: 0, y: 50 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8 }}
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+        transition={{ duration: 0.6 }}
       >
-
         <h1 className="text-blue-700 text-2xl font-semibold">Details</h1>
-        <p>
-          <strong>Food Type:</strong> {donation.foodType}
-        </p>
-        <p>
-          <strong>Quantity:</strong> {donation.quantity}
-        </p>
-        <p>
-          <strong>Restaurant:</strong> {donation.restaurantName}
-        </p>
-        <p>
-          <strong>Location:</strong> {donation.location}
-        </p>
-        <p>
-          <strong>Pickup Time:</strong> {donation.pickupTime}
-        </p>
-        <p>
-          <strong>Status:</strong> {donation.status}
-        </p>
-
-
+        <p><strong>Food Type:</strong> {donation.foodType}</p>
+        <p><strong>Quantity:</strong> {donation.quantity}</p>
+        <p><strong>Restaurant:</strong> {donation.restaurantName}</p>
+        <p><strong>Location:</strong> {donation.location}</p>
+        <p><strong>Pickup Time:</strong> {donation.pickupTime}</p>
+        <p><strong>Status:</strong> {donation.status}</p>
 
         {/* Buttons */}
-      <motion.div
-        className="flex flex-wrap gap-4 mt-6"
-        initial={{ opacity: 0, y: 40 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8, delay: 0.2 }}
-      >
-        {useRole === "user" && (
-          <motion.button
-            onClick={handleSaveToFavorites}
-            className="btn btn-outline border-blue-500 text-blue-500  hover:bg-blue-500 hover:text-white transition rounded-xl"
-            whileHover={{ scale: 1.05 }}
-          >
-            Save to Favorites
-          </motion.button>
-        )}
-
-        {useRole === "charity" && (
-          <>
-            <motion.button
-              onClick={() => document.getElementById("requestModal").showModal()}
-              className="btn bg-green-500 text-white rounded-xl"
-              whileHover={{ scale: 1.05 }}
+        <div className="flex flex-wrap gap-4 mt-6">
+          {useRole === "user" && (
+            <button
+              onClick={handleSaveToFavorites}
+              className="btn btn-outline border-blue-500 text-blue-500 hover:bg-blue-500 hover:text-white transition rounded-xl"
             >
-              Request Donation
-            </motion.button>
-
-            <motion.button
-              onClick={async () => {
-                await axiosSecure.put(
-                  `/donations/${donation._id}/pickup-confirm`
-                );
-                toast.success("Donation marked as picked up");
-              }}
-              className="btn bg-blue-500 text-white rounded-xl"
-              whileHover={{ scale: 1.05 }}
-            >
-              Confirm Pickup
-            </motion.button>
-          </>
-        )}
+              Save to Favorites
+            </button>
+          )}
+          {useRole === "charity" && (
+            <>
+              <button
+                onClick={() => document.getElementById("requestModal").showModal()}
+                className="btn bg-green-500 text-white rounded-xl"
+              >
+                Request Donation
+              </button>
+              <button
+                onClick={async () => {
+                  await axiosSecure.put(`/donations/${donation._id}/pickup-confirm`);
+                  toast.success("Donation marked as picked up");
+                }}
+                className="btn bg-blue-500 text-white rounded-xl"
+              >
+                Confirm Pickup
+              </button>
+            </>
+          )}
+        </div>
       </motion.div>
 
-      </motion.div>
-
-     
       {/* Reviews */}
       <motion.div
         className="mt-12 bg-base-300 p-6 rounded-2xl shadow-md"
-        initial={{ opacity: 0, y: 50 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8 }}
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+        transition={{ duration: 0.6 }}
       >
         <h3 className="text-xl font-semibold mb-4 text-blue-500">Reviews</h3>
         {(donation.reviews || []).map((review) => (
@@ -209,58 +184,29 @@ const DonationDetails = () => {
             <p className="text-gray-600">{review.description}</p>
           </div>
         ))}
-
         {useRole === "user" && (
-          <motion.button
+          <button
             onClick={() => document.getElementById("reviewModal").showModal()}
             className="btn btn-outline border-green-400 text-green-400 mt-4 rounded-xl"
-            whileHover={{ scale: 1.05 }}
           >
             Add Review
-          </motion.button>
+          </button>
         )}
       </motion.div>
 
       {/* Modals */}
+      {/* Request Modal */}
       <dialog id="requestModal" className="modal">
         <div className="modal-box rounded-2xl">
           <form onSubmit={handleRequestDonation} className="space-y-4">
             <h3 className="text-lg font-bold">Request Donation</h3>
-            <input
-              value={donation.title}
-              readOnly
-              className="input input-bordered w-full"
-            />
-            <input
-              value={donation.restaurantName}
-              readOnly
-              className="input input-bordered w-full"
-            />
-            <input
-              value={user?.displayName}
-              readOnly
-              className="input input-bordered w-full"
-            />
-            <input
-              value={user?.email}
-              readOnly
-              className="input input-bordered w-full"
-            />
-            <textarea
-              name="description"
-              required
-              placeholder="Why are you requesting this donation?"
-              className="textarea textarea-bordered w-full"
-            />
-            <input
-              type="datetime-local"
-              name="pickupTime"
-              className="input input-bordered w-full"
-              required
-            />
-            <button type="submit" className="btn btn-primary w-full rounded-xl">
-              Submit Request
-            </button>
+            <input value={donation.title} readOnly className="input input-bordered w-full" />
+            <input value={donation.restaurantName} readOnly className="input input-bordered w-full" />
+            <input value={user?.displayName} readOnly className="input input-bordered w-full" />
+            <input value={user?.email} readOnly className="input input-bordered w-full" />
+            <textarea name="description" required placeholder="Why are you requesting this donation?" className="textarea textarea-bordered w-full" />
+            <input type="datetime-local" name="pickupTime" required className="input input-bordered w-full" />
+            <button type="submit" className="btn btn-outline bg-blue-600 text-white w-full rounded-xl">Submit Request</button>
           </form>
           <div className="modal-action">
             <form method="dialog">
@@ -270,30 +216,14 @@ const DonationDetails = () => {
         </div>
       </dialog>
 
+      {/* Review Modal */}
       <dialog id="reviewModal" className="modal">
         <div className="modal-box rounded-2xl">
           <form onSubmit={handleReview} className="space-y-4">
             <h3 className="text-lg font-bold">Add Review</h3>
-            <textarea
-              name="description"
-              required
-              className="textarea textarea-bordered w-full"
-              placeholder="Write your review..."
-            />
-            <input
-              type="number"
-              name="rating"
-              required
-              min="1"
-              max="5"
-              className="input input-bordered w-full"
-            />
-            <button
-              type="submit"
-              className="btn btn-success w-full rounded-xl"
-            >
-              Submit
-            </button>
+            <textarea name="description" required className="textarea textarea-bordered w-full" placeholder="Write your review..." />
+            <input type="number" name="rating" required min="1" max="5" className="input input-bordered w-full" />
+            <button type="submit" className="btn btn-success w-full rounded-xl">Submit</button>
           </form>
           <div className="modal-action">
             <form method="dialog">
@@ -303,7 +233,7 @@ const DonationDetails = () => {
         </div>
       </dialog>
 
-      {/* All Reviews Component */}
+      {/* All Reviews */}
       <AllReviews />
     </div>
   );
